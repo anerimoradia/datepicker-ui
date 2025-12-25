@@ -1,0 +1,139 @@
+/* Page centering, background */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f4f4f6;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Wrapper to demonstrate absolute positioning of the panel */
+.datepicker-wrapper {
+  position: relative; /* important so the panel can be absolutely positioned */
+}
+
+/* Input row */
+.datepicker-input-row {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #d0d0dc;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+}
+
+.datepicker-input {
+  border: none;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  min-width: 160px;
+}
+
+.datepicker-input::placeholder {
+  color: #9ca3af;
+}
+
+.datepicker-button {
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 0 12px;
+  cursor: default; /* since it's static */
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Calendar panel */
+.datepicker-panel {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  margin-top: 8px;
+  width: 260px;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
+  padding: 12px 12px 14px;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+/* Header with month/year and arrows */
+.datepicker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.month-year {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.nav-btn {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  color: #6b7280;
+  cursor: default; /* static UI */
+  padding: 4px 6px;
+}
+
+/* Weekday labels */
+.datepicker-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 6px;
+}
+
+/* Days grid */
+.datepicker-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  gap: 2px;
+  font-size: 12px;
+}
+
+.datepicker-grid .day,
+.datepicker-grid .empty {
+  padding: 6px 0;
+  border-radius: 4px;
+}
+
+/* Normal days */
+.datepicker-grid .day {
+  color: #111827;
+}
+
+/* Example: highlight a "selected" date (e.g., 12) */
+.datepicker-grid .day:nth-child(11) {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+/* Hover-like effect (purely visual, not interactive) */
+.datepicker-grid .day:hover {
+  background: #eff6ff;
+}
+
+/* Empty placeholders */
+.datepicker-grid .empty {
+  background: transparent;
+}
